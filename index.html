@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Pribadi - Halaman Animatif 🌈</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: linear-gradient(135deg, #f5f6fa, #e3f2fd);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: linear-gradient(90deg, #ff6ec7, #7873f5, #48c6ef);
+      background-size: 400% 400%;
+      animation: gradientFlow 10s ease infinite;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    @keyframes gradientFlow {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      text-shadow: 0 0 10px white;
+    }
+
+    /* ===== Section Style ===== */
+    main { padding-top: 90px; }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 34px;
+      background: linear-gradient(90deg, #ff6ec7, #7873f5, #48c6ef);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      animation: colorShift 5s ease infinite;
+    }
+
+    @keyframes colorShift {
+      0% {background-position: 0%;}
+      50% {background-position: 100%;}
+      100% {background-position: 0%;}
+    }
+
+    p {
+      max-width: 700px;
+      line-height: 1.7;
+      font-size: 16px;
+      color: #444;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    .hero h2 { color: #fff; font-size: 42px; animation: fadeSlide 1s ease; }
+    .hero p { color: #f1f1f1; animation: fadeSlide 1.3s ease; }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* ===== Portfolio Cards ===== */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* ===== Form ===== */
+    form {
+      max-width: 450px;
+      width: 100%;
+      text-align: left;
+      margin-top: 25px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    button {
+      background: linear-gradient(90deg, #ff6ec7, #7873f5, #48c6ef);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      background-size: 200% 200%;
+      animation: gradientFlow 5s ease infinite;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(120,115,245,0.5);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px){
+      header { flex-direction: column; text-align: center; }
+      nav a { display: block; margin: 6px 0; }
+      h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌈 Profil Saya</h1>
+    <nav>
+      <a href="#home">Beranda</a>
+      <a href="#about">Tentang</a>
+      <a href="#portfolio">Portofolio</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HALAMAN 1 -->
+    <section id="home" class="hero">
+      <h2>Halo, Saya Ferdi Anandiya Rahmat</h2>
+      <p>Seorang pengembang web kreatif yang menggabungkan teknologi, seni, dan warna 🌈 untuk menciptakan pengalaman digital yang memikat.</p>
+    </section>
+
+    <!-- HALAMAN 2 -->
+    <section id="about">
+      <h2>Tentang Saya</h2>
+      <p>
+        Saya berfokus pada pembuatan tampilan antarmuka modern menggunakan HTML, CSS, dan JavaScript.
+        Saya senang menambahkan sentuhan warna dan animasi untuk membuat setiap proyek terasa hidup dan berkesan.
+        Selain itu, saya juga terbiasa membuat sistem informasi berbasis web untuk berbagai kebutuhan.
+      </p>
+    </section>
+
+    <!-- HALAMAN 3 -->
+    <section id="portfolio">
+      <h2>Portofolio 🌟</h2>
+      <div class="portfolio">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" alt="Proyek 1">
+          <h3>Website Profil Sekolah</h3>
+          <p>Sistem profil lengkap dengan halaman guru, siswa, dan berita sekolah.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1581091012184-5c2f94b6c4a4?auto=format&fit=crop&w=600&q=80" alt="Proyek 2">
+          <h3>Manajemen Kelas Online</h3>
+          <p>Aplikasi berbasis web untuk pengelolaan jadwal dan tugas siswa.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1603791452906-bb9f4a4d4ec4?auto=format&fit=crop&w=600&q=80" alt="Proyek 3">
+          <h3>Landing Page Bisnis</h3>
+          <p>Desain berwarna lembut dengan efek animasi interaktif.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HALAMAN 4 -->
+    <section id="contact">
+      <h2>Hubungi Saya 💬</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Nama Anda" required>
+        <input type="email" id="email" placeholder="Email Anda" required>
+        <textarea id="message" rows="5" placeholder="Pesan Anda..." required></textarea>
+        <button type="submit">Kirim Pesan</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ferdi Anandiya Rahmat | Dibuat dengan ❤️ dan warna 🌈 menggunakan HTML, CSS, dan JavaScript</p>
+  </footer>
+
+  <script>
+    // Efek muncul lembut saat scroll
+    const sections = document.querySelectorAll("section");
+    function revealSections() {
+      const trigger = window.innerHeight * 0.8;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add("visible");
+      });
+    }
+    window.addEventListener("scroll", revealSections);
+    revealSections();
+
+    // Efek kirim form
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const nama = document.getElementById("name").value;
+      alert(`🎉 Terima kasih, ${nama}! Pesan Anda telah dikirim.`);
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
